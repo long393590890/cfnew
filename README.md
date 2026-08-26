@@ -128,6 +128,17 @@
 
 订阅每15分钟自动优选一次
 
+#### Git 自动部署
+
+仓库根目录的 `_worker.js` 是 Cloudflare 自动部署入口，`wrangler.toml` 负责声明入口文件。
+
+1. 在 Cloudflare Workers 中选择连接 Git 仓库，并选择本仓库。
+2. 构建命令保持为空，部署命令使用 `npx wrangler deploy`。
+3. 保存后，推送到仓库会自动部署 `_worker.js`。
+4. 修改 `明文源吗` 后，GitHub Action 会同步生成 `少年你相信光吗` 和 `_worker.js`。
+
+如使用 Pages Git 部署，框架预设选择 `None`，构建命令留空，并将构建输出目录设置为仓库根目录。
+
 #### 基础配置
 | 变量名 | 值 | 说明 |
 | :--- | :--- | :--- |
